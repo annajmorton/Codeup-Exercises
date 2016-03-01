@@ -56,6 +56,7 @@ foreach ($things as $key => $value) {
 	}
 }
 
+
 fwrite(STDOUT, "\n\nMatching the window in the excercise...\n");
 
 foreach ($things as $key => $value) {
