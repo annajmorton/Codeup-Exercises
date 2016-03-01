@@ -7,17 +7,42 @@ function add($a, $b)
 
 function subtract($a, $b)
 {
-    // Add code here
+    return $a - $b;
 }
 
 function multiply($a, $b)
 {
-    // Add code here
+    return $a * $b;
 }
 
 function divide($a, $b)
 {
-    // Add code here
+    return $a / $b;
+}
+function modulus($a ,$b){
+
+	return $a % $b;
 }
 
-// Add code to test your functions here
+echo 'function party!'.PHP_EOL;
+
+$good = 2;
+$bad = 5;
+
+$ulgy = add($good, $bad);
+
+echo $ulgy . PHP_EOL;
+
+
+echo subtract($good, $bad) . PHP_EOL;
+
+fwrite(STDOUT, multiply($good ,$bad) . PHP_EOL);
+
+echo $ulgy = divide($good, $bad);
+
+fwrite(STDOUT, modulus($good, $bad) . PHP_EOL);
+
+
+
+
+
