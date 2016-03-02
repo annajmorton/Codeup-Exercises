@@ -1,6 +1,6 @@
 <?php
 
-function throwErrorMessage($a, $b) {
+function throwErrorMessage($a, $b, $hasDiv = false) {
 
 	$turnItOff = false;
 
@@ -17,6 +17,13 @@ function throwErrorMessage($a, $b) {
 		$turnItOff = true;
 	
 	}
+	
+	if ($hasDiv && $b == 0) {
+
+		echo "you entered $b, you cannot divide by zero";
+		$turnItOff = true;
+
+	}
 
 	if ($turnItOff) {
 		
@@ -30,14 +37,6 @@ function throwErrorMessage($a, $b) {
 
 }
 
-function divZero($b) {
-
-	if ($b == 0) {
-		echo "you entered $b, you cannot divide by zero";
-		return true;
-	}
-
-}
 
 
 function add($a, $b)
@@ -79,32 +78,21 @@ function multiply($a, $b)
 function divide($a, $b)
 {
     
-	if (throwErrorMessage($a, $b)) {
+	if (throwErrorMessage($a, $b, true)) {
 		
 		return;
 	} 
-
-	if (divZero($b)) {
-		
-		return;
-	}
 
     return $a / $b;
 
 }
 function modulus($a ,$b){
 
-	if (throwErrorMessage($a, $b)) {
+	if (throwErrorMessage($a, $b, true)) {
 		
 		return;
 	} 
-
-	if (divZero($b)) {
-
-		return;
-	}
 		
-	
 	return $a % $b;
 
 
