@@ -10,26 +10,37 @@ function combine_arrays($array1, $array2){
 	$combo = [];
 	$count1 = count($array1);
 	$count2 = count($array2);
+	$maxA = $array1;
+	$minA = $array2;
+
+	if ($count1 < $count2) {
+		
+		$maxA = $array2;
+		$minA = $array1;
+
+	}	
 
 	for ($i=0; $i < max($count1, $count2); $i++) { 
 	
-		if ($array1[$i] == $array2[$i]) {
+		
+		if (!empty($minA[$i])) {
 			
-			array_push($combo, $array1[$i]);
+			if ($maxA[$i] == $minA[$i]) {
+				
+				array_push($combo, $maxA[$i]);
+
+			} else {
+
+				array_push($combo, $maxA[$i], $minA[$i]);
+
+			}
 
 		} else {
 
-			if (!empty($array1[$i])) {
-				
-				array_push($combo, $array1[$i]);
-			}
-
-			if (!empty($array2[$i])) {
-				
-				array_push($combo, $array2[$i]);
-			}
+			array_push($combo, $maxA[$i]);
 
 		}
+
 
 	}
 
@@ -37,7 +48,7 @@ function combine_arrays($array1, $array2){
 
 }
 
-print_r(combine_arrays($names, $compare));
+print_r(combine_arrays($compare, $names));
 
 
 
