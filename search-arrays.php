@@ -30,7 +30,7 @@ function compareIT($names, $compare){
 		if(array_search($value, $compare, true) !== false) {
 
 			++$count;
-			var_dump($value);
+			// var_dump($value);
 		}
 	}
 	

@@ -123,3 +123,11 @@ echo "I am so pissed i just saved over all this work!\n";
     }
 
 
+    foreach ($companies as $key => $people) {
+        
+        shuffle($people);
+        $companies[$key] = $people;
+        
+    }
+
+    print_r($companies);
