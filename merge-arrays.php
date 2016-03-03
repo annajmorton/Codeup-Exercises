@@ -31,7 +31,7 @@ function combine_arrays($array1, $array2){
 
 			} else {
 
-				array_push($combo, $maxA[$i], $minA[$i]);
+				array_push($combo, $array1[$i], $array2[$i]);
 
 			}
 
@@ -48,7 +48,7 @@ function combine_arrays($array1, $array2){
 
 }
 
-print_r(combine_arrays($compare, $names));
+print_r(combine_arrays($names, $compare));
 
 
 
