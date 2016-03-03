@@ -8,7 +8,28 @@ function humanizedList($ArrayIN, $isAsort = false) {
 
 	if ($isAsort) {
 		
+		
+		// resort by last name first 
+
+		foreach ($ArrayIN as $key => &$value) {
+			
+			$tempArr  = explode(' ', $value);
+			array_unshift($tempArr, array_pop($tempArr));
+			$value = implode(" ", $tempArr);
+
+		}
+
 		sort($ArrayIN);
+
+
+		foreach ($ArrayIN as $key => &$value) {
+			
+			$tempArr  = explode(' ', $value);
+			array_push($tempArr, array_shift($tempArr));
+			$value = implode(" ", $tempArr);
+
+		}
+
 
 	}
 
