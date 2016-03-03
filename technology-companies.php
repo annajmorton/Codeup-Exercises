@@ -46,9 +46,12 @@ $companies = [
 ];
 
 
+
+echo "I am so pissed i just saved over all this work!\n";
+
 // print companies 
 
-    echo "here is my array: \n";
+    echo "\n\n\nhere is my array: \n";
 
     foreach ($companies as $key => $value) {
         
@@ -57,7 +60,62 @@ $companies = [
     
 //sort companies by name
 
+    echo "\n\n\nnow stuff is sorted by company name:\n";
     ksort($companies);
+
+    foreach ($companies as $key => $value) {
+        
+        echo $key . PHP_EOL;
+    }
+
+
+
+
+// modify array to position last name first for lastname sorting
+
+    foreach ($companies as &$value) {
+        
+            foreach ($value as &$name) {
+                
+                $tempArray = explode(" ", $name);
+                array_unshift($tempArray, array_pop($tempArray));
+                $name = implode(" ", $tempArray);
+                
+            }
+
+    }
+
+
+// sort people by name
+
+    foreach ($companies as $key => &$value) {
+        
+        asort($value);
+    }
+
+    
+// change array back to first name last name order for printing 
+
+    foreach ($companies as &$value) {
+        
+            foreach ($value as &$name) {
+                
+                $tempArray = explode(" ", $name);
+                array_push($tempArray, array_shift($tempArray));
+                $name = implode(" ", $tempArray);
+                
+            }
+
+    }
+
+
+    echo "\n\n\ncompany people are sorted alphabetically by lastname\n";
+    var_export($companies);
+
+// sort companies biggest to smallest
+
+    echo "\n\n\nnow stuff is sorted by biggest to smallest company:\n";
+    arsort($companies);
 
     foreach ($companies as $key => $value) {
         
