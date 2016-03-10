@@ -18,6 +18,12 @@ function logMessage($logLevel, $message)
     // add message
 
 	$fileTest = filesize($filename);
+	echo var_dump($fileTest);
+
+	if ($fileTest == 0) {
+
+		fwrite($handler, $date.' '.$time.' ['.$logLevel.'] '.$message);
+	}
 
 	fwrite($handler, PHP_EOL.$date.' '.$time.' ['.$logLevel.'] '.$message);
 
